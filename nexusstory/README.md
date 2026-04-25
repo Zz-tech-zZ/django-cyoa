@@ -84,22 +84,3 @@ nexusstory/
         └── js/main.js
 ```
 
----
-
-## Syllabus Coverage
-
-| Topic | Where |
-|---|---|
-| MVC/MVT Pattern | Entire project structure |
-| URL mapping / Loose coupling | `adventure/urls.py` included in `nexusstory/urls.py` |
-| Views | `views.py` — function views + CBVs |
-| Templates & Inheritance | `base.html` extended by all templates |
-| Template tags & filters | `linebreaks`, `pluralize`, `date` filters in templates |
-| Models & DB | `models.py` — Scene, Choice, PlayerSession |
-| Data access (insert/update/delete/select) | `views.py` — PlayerSession CRUD |
-| Admin Interface (customized) | `admin.py` — inline choices, list_editable, fieldsets |
-| ModelForms & custom validation | `forms.py` + `suggest.html` |
-| Generic Views | `SceneListView`, `SceneDetailView` in `views.py` |
-| Non-HTML content (CSV) | `export_story_csv` view |
-| Sessions | `get_player_session()` helper + `PlayerSession` model |
-| URLConf includes | Root `urls.py` includes `adventure.urls` |
