@@ -1,0 +1,293 @@
+[
+  {
+    "model": "adventure.scene",
+    "pk": 1,
+    "fields": {
+      "title": "The Cold Stone Floor",
+      "body": "Your eyes open to darkness. The air is cold and damp, carrying the scent of old wood and something else — something you can't name but instinctively fear.\n\nYou're lying on a stone floor. Above you, a cracked ceiling disappears into shadow. Through a broken window to your left, pale moonlight cuts a silver rectangle across the floor.\n\nYou don't remember how you got here. You don't remember much of anything.\n\nYou sit up. Your hands are trembling. Ahead of you is a long corridor. To your right, a heavy wooden door hangs slightly open, a faint orange glow pulsing from within. Behind you, a staircase leads upward into total darkness.",
+      "image_url": "",
+      "atmosphere": "mysterious",
+      "is_start": true,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 2,
+    "fields": {
+      "title": "The Flickering Study",
+      "body": "You push open the heavy door. Inside is a study — bookshelves lining every wall, a mahogany desk covered in papers, and a single oil lamp casting that pulsing orange glow you saw from the corridor.\n\nBut the lamp is burning on its own. There's no flame. The light simply... exists.\n\nOn the desk, a leather journal lies open. The handwriting is frantic, the last entry dated forty years ago. The final line reads: 'It knows I'm here. It's been watching from the mirror. Do NOT look in the mirror.'\n\nThere is a mirror on the far wall. You can see your reflection — but it's standing slightly wrong. Not quite mirroring your posture.",
+      "image_url": "",
+      "atmosphere": "tense",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 3,
+    "fields": {
+      "title": "The Upper Landing",
+      "body": "The staircase creaks under every step. You count fourteen stairs — an unlucky number, you think, though you're not sure why that thought comes to you.\n\nAt the top, a landing opens into a wide hallway. Three doors face you: one painted red, one painted white, one that appears to have been nailed shut with wooden planks that have since rotted and fallen away.\n\nFrom behind the red door comes the sound of a music box. It's playing something that sounds almost like a lullaby, but the melody is just slightly wrong — one note out of place on every third bar, like a deliberate taunt.\n\nFrom behind the white door: silence. Total, absolute silence, the kind that feels intentional.",
+      "image_url": "",
+      "atmosphere": "tense",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 4,
+    "fields": {
+      "title": "The Mirror's Grip",
+      "body": "You look directly at the mirror.\n\nFor one second, your reflection smiles at you. You are not smiling.\n\nThen your reflection reaches through the glass.\n\nThe hand that closes around your wrist is cold as winter stone. You try to scream but the study tilts, spins, and the lamp goes out. The last thing you feel is the mirror's surface against your face — and then through it.\n\nWhen they find your room three days later, the mirror is gone. In its place on the wall, someone — or something — has scratched a single word into the plaster:\n\nSTAYED.",
+      "image_url": "",
+      "atmosphere": "terrifying",
+      "is_start": false,
+      "is_ending": true,
+      "ending_type": "bad",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 5,
+    "fields": {
+      "title": "Secrets in the Journal",
+      "body": "You tear your eyes away from the mirror and focus on the journal.\n\nThe earlier entries describe a man — Professor Edmund Hale — who came to study the mansion's history. He believed the building was constructed over something old, something that predated the town itself. He wrote of finding a passage beneath the cellar. He wrote of hearing his name spoken by the walls.\n\nThen his writing changed. Shorter sentences. No dates. The last coherent entry reads: 'The door in the cellar is the only way out. The key is behind the painting of the woman with no eyes. Do not let it see you take the key.'\n\nYou look up. Above the fireplace is a painting of a woman. She has no eyes — just smooth painted skin where her eyes should be.",
+      "image_url": "",
+      "atmosphere": "mysterious",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 6,
+    "fields": {
+      "title": "The Red Door",
+      "body": "You open the red door.\n\nA child's bedroom. Dusty, frozen in time — a rocking horse in the corner, a bed with a faded quilt, toys arranged neatly on shelves as if waiting for a child who never came back.\n\nThe music box sits open on the windowsill. It's still playing. But as you watch, the tiny mechanical dancer inside it turns its head to look at you. Its painted face has no features except a wide, painted smile.\n\nOn the bed, tucked under the pillow, you find a small iron key on a cord. It's old, blackened with age, and heavier than it should be for its size.\n\nThe music box stops.\n\nSomething under the bed shifts.",
+      "image_url": "",
+      "atmosphere": "terrifying",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 7,
+    "fields": {
+      "title": "The White Door",
+      "body": "You open the white door and step into perfect darkness.\n\nNot just the absence of light — this feels like the absence of everything. No sound, no smell, no sense of the floor under your feet. You take one step, then another.\n\nThen your hand finds a light switch.\n\nThe room floods with harsh fluorescent light. You're in a bathroom — modern, clean, completely out of place with the rest of the mansion. On the sink, a mobile phone. Charged, signal bars in the corner, fully functional.\n\nThere's one text message on the screen, from an unknown number, sent at 3:17 this morning:\n\n'DO NOT GO TO THE CELLAR. TAKE THE EAST WINDOW. WE'RE OUTSIDE. HURRY.'",
+      "image_url": "",
+      "atmosphere": "mysterious",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 8,
+    "fields": {
+      "title": "Under the Bed",
+      "body": "You drop to your knees and look under the bed.\n\nA pair of eyes look back at you. They are very large, very pale, and they do not blink.\n\nYou have just enough time to register that whatever is under the bed is much larger than the space should allow — and then it lunges.\n\nThe key falls from your hand as you run. You make it to the door but it won't open. You pull, push, kick. Behind you, slow deliberate footsteps cross the room.\n\nThe music box begins playing again.",
+      "image_url": "",
+      "atmosphere": "terrifying",
+      "is_start": false,
+      "is_ending": true,
+      "ending_type": "bad",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 9,
+    "fields": {
+      "title": "The East Window",
+      "body": "You find the east window at the end of the upper landing. It's unlocked, the latch stiff but yielding.\n\nBelow, on the overgrown lawn, three people stand with torches. One of them sees you and waves urgently. You recognise nothing about them, but the message said they were outside. The message said hurry.\n\nThe drop is about twelve feet. There's a stone ledge below the window that might break the fall.\n\nBehind you, the music box starts playing again. Closer now.",
+      "image_url": "",
+      "atmosphere": "tense",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 10,
+    "fields": {
+      "title": "The Painting and the Key",
+      "body": "You reach behind the painting of the eyeless woman.\n\nYour fingers find a small ledge cut into the plaster, and on it, a cold iron key.\n\nAs you pull the key free, you feel the painting shift. When you step back, the woman in the portrait has turned her head. She was facing left before. Now she faces right — directly at the doorway where you entered.\n\nYou look at the doorway.\n\nSomething is standing in it. Tall, very still, wearing what looks like an old servant's uniform. Where its face should be is a smooth, featureless white oval.\n\nIt is not blocking the way. It's just watching.",
+      "image_url": "",
+      "atmosphere": "terrifying",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 11,
+    "fields": {
+      "title": "The Cellar Door",
+      "body": "The cellar stairs are behind a door under the main staircase. The iron key fits perfectly. The lock turns with a sound like a cracking bone.\n\nThe cellar is vast — far larger than the house above it should allow. Stone walls, a dirt floor, shelves of bottled things you decide not to look at too closely.\n\nAt the far end, a second door. Older. Made of something that isn't wood or metal. The journal said this was the way out.\n\nYou insert the key.\n\nThe door opens onto morning light. A country lane. Trees. Birds.\n\nYou step through and do not look back.",
+      "image_url": "",
+      "atmosphere": "calm",
+      "is_start": false,
+      "is_ending": true,
+      "ending_type": "good",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 12,
+    "fields": {
+      "title": "Rescued",
+      "body": "You jump.\n\nThe stone ledge catches you. You hit it hard, roll forward, drop the last few feet to the grass. Something twists in your ankle but holds.\n\nThe three people are already running toward you. They pull you upright, don't ask questions, and move fast through the dark garden toward a gate in the far wall.\n\nOnce through, one of them — a woman with a torch and muddy boots — finally speaks:\n\n'We've been watching the house for two days. You're the third one we've pulled out. None of you remember going in.'\n\nBehind you, every window in the mansion lights up simultaneously.\n\nThen all at once, they go dark.\n\nYou don't stop walking.",
+      "image_url": "",
+      "atmosphere": "calm",
+      "is_start": false,
+      "is_ending": true,
+      "ending_type": "good",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 13,
+    "fields": {
+      "title": "Run Past the Figure",
+      "body": "You walk past the faceless figure without looking at it. Every instinct screams. You keep your eyes forward and move steadily through the doorway.\n\nThe figure does not follow. You don't hear it move. By the time you're back in the corridor, your whole body is shaking.\n\nBut you have the key.\n\nNow you need the cellar.",
+      "image_url": "",
+      "atmosphere": "tense",
+      "is_start": false,
+      "is_ending": false,
+      "ending_type": "none",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.scene",
+    "pk": 14,
+    "fields": {
+      "title": "The Figure Notices",
+      "body": "You look at it.\n\nYou know immediately that was a mistake.\n\nThe smooth white face turns toward you — not rotating like a head should, but sliding, like something underneath the skin is repositioning itself.\n\nThen it speaks. There is no mouth to speak from, but you hear it clearly inside your skull:\n\n'You looked.'\n\nThe key in your hand goes cold. Then it crumbles to powder.\n\nThe hallway stretches.",
+      "image_url": "",
+      "atmosphere": "terrifying",
+      "is_start": false,
+      "is_ending": true,
+      "ending_type": "bad",
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 1,
+    "fields": { "scene": 1, "text": "Go toward the flickering light behind the wooden door", "next_scene": 2, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 2,
+    "fields": { "scene": 1, "text": "Head up the staircase into the darkness", "next_scene": 3, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 3,
+    "fields": { "scene": 1, "text": "Stay still and wait for your eyes to adjust", "next_scene": 3, "order": 3 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 4,
+    "fields": { "scene": 2, "text": "Look directly at the mirror", "next_scene": 4, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 5,
+    "fields": { "scene": 2, "text": "Read the journal, keep your back to the mirror", "next_scene": 5, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 6,
+    "fields": { "scene": 3, "text": "Open the red door toward the music", "next_scene": 6, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 7,
+    "fields": { "scene": 3, "text": "Open the white door into the silence", "next_scene": 7, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 8,
+    "fields": { "scene": 3, "text": "Pull the planks away from the nailed door", "next_scene": 9, "order": 3 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 9,
+    "fields": { "scene": 5, "text": "Take the key from behind the painting", "next_scene": 10, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 10,
+    "fields": { "scene": 5, "text": "Leave the study and head upstairs instead", "next_scene": 3, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 11,
+    "fields": { "scene": 6, "text": "Grab the key from the pillow quickly", "next_scene": 13, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 12,
+    "fields": { "scene": 6, "text": "Look under the bed", "next_scene": 8, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 13,
+    "fields": { "scene": 7, "text": "Trust the message and find the east window", "next_scene": 9, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 14,
+    "fields": { "scene": 7, "text": "Ignore the message and search for another way out", "next_scene": 3, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 15,
+    "fields": { "scene": 9, "text": "Jump from the window toward the people below", "next_scene": 12, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 16,
+    "fields": { "scene": 9, "text": "The people could be a trap. Find the cellar instead.", "next_scene": 3, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 17,
+    "fields": { "scene": 10, "text": "Walk past it without looking at it", "next_scene": 13, "order": 1 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 18,
+    "fields": { "scene": 10, "text": "Look directly at the faceless figure", "next_scene": 14, "order": 2 }
+  },
+  {
+    "model": "adventure.choice",
+    "pk": 19,
+    "fields": { "scene": 13, "text": "Go to the cellar with the key", "next_scene": 11, "order": 1 }
+  }
+]

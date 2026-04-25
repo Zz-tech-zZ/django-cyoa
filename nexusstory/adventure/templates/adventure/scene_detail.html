@@ -1,0 +1,87 @@
+{% extends 'adventure/base.html' %}
+
+{% block title %}{{ scene.title }} — Story Map — NexusStory{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="page-header">
+        <a href="{% url 'scene_list' %}" class="back-link">← Back to Story Map</a>
+        <h1>{{ scene.title }}</h1>
+        {% if scene.is_start %}<span class="badge badge-start">STARTING SCENE</span>{% endif %}
+        {% if scene.is_ending %}<span class="badge badge-ending">{{ scene.ending_type|upper }} ENDING</span>{% endif %}
+    </div>
+
+    <div class="detail-grid">
+        <!-- Scene info -->
+        <div class="detail-main">
+            <div class="detail-card">
+                <h3>Scene Text</h3>
+                <div class="detail-body">{{ scene.body|linebreaks }}</div>
+            </div>
+
+            {% if scene.image_url %}
+            <div class="detail-card">
+                <h3>Scene Image</h3>
+                <img src="{{ scene.image_url }}" alt="{{ scene.title }}" style="max-width:100%; border-radius:8px;">
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar: connections -->
+        <div class="detail-sidebar">
+            <div class="detail-card">
+                <h3>Scene Info</h3>
+                <dl class="detail-list">
+                    <dt>Atmosphere</dt>
+                    <dd><span class="atmosphere-pill pill-{{ scene.atmosphere }}">{{ scene.atmosphere }}</span></dd>
+                    <dt>Scene ID</dt>
+                    <dd>#{{ scene.id }}</dd>
+                    <dt>Created</dt>
+                    <dd>{{ scene.created_at|date:"M d, Y" }}</dd>
+                </dl>
+            </div>
+
+            <div class="detail-card">
+                <h3>Outgoing Choices ({{ choices.count }})</h3>
+                {% if choices %}
+                <ul class="connection-list">
+                    {% for choice in choices %}
+                    <li>
+                        <span class="connection-text">{{ choice.text }}</span>
+                        <span class="connection-arrow">→</span>
+                        {% if choice.next_scene %}
+                        <a href="{% url 'scene_detail' choice.next_scene.pk %}">{{ choice.next_scene.title }}</a>
+                        {% else %}
+                        <em>Dead end</em>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="muted">No choices — {% if scene.is_ending %}this is an ending.{% else %}not yet connected.{% endif %}</p>
+                {% endif %}
+            </div>
+
+            <div class="detail-card">
+                <h3>Incoming Paths ({{ incoming.count }})</h3>
+                {% if incoming %}
+                <ul class="connection-list">
+                    {% for choice in incoming %}
+                    <li>
+                        From: <a href="{% url 'scene_detail' choice.scene.pk %}">{{ choice.scene.title }}</a>
+                        <span class="muted"> via "{{ choice.text }}"</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="muted">{% if scene.is_start %}This is the starting scene.{% else %}No scenes lead here yet.{% endif %}</p>
+                {% endif %}
+            </div>
+
+            <div class="detail-card-actions">
+                <a href="{% url 'scene' scene.id %}" class="btn btn-primary">▶ Play from Here</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

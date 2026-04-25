@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}NexusStory{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'adventure/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="nav-brand">
+            <span class="nav-icon">👻</span> NexusStory
+        </a>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'scene_list' %}">Story Map</a>
+            <a href="{% url 'suggest_scene' %}">Suggest a Scene</a>
+            <a href="{% url 'stats' %}">Stats</a>
+            <a href="{% url 'export_csv' %}" class="nav-export">⬇ Export CSV</a>
+        </div>
+    </nav>
+
+    <!-- Messages (Django messages framework) -->
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+        <div class="message message-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main content block — child templates fill this -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>NexusStory &mdash; A Django CYOA Engine &bull; Built with Django</p>
+    </footer>
+
+    <script src="{% static 'adventure/js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

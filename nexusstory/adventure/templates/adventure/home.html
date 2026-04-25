@@ -1,0 +1,67 @@
+{% extends 'adventure/base.html' %}
+
+{% block title %}NexusStory — The Haunted Mansion{% endblock %}
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <div class="hero-eyebrow">A Choose Your Own Adventure</div>
+        <h1 class="hero-title">The Haunted Mansion</h1>
+        <p class="hero-subtitle">
+            You wake up on a cold stone floor. The air smells of dust and old wood.
+            Somewhere in the darkness, a door creaks open on its own.
+            <em>You don't remember how you got here.</em>
+        </p>
+
+        <div class="hero-actions">
+            {% if has_progress %}
+                <a href="{% url 'scene' player.current_scene.id %}" class="btn btn-primary btn-large">
+                    ▶ Continue Story
+                </a>
+                <a href="{% url 'start_game' %}" class="btn btn-ghost">
+                    ↺ Start Over
+                </a>
+            {% else %}
+                <a href="{% url 'start_game' %}" class="btn btn-primary btn-large">
+                    ☠ Begin Your Journey
+                </a>
+            {% endif %}
+        </div>
+
+        {% if has_progress %}
+        <p class="hero-progress">
+            Currently at: <strong>{{ player.current_scene.title }}</strong>
+            &bull; {{ player.scenes_visited.count }} scene{{ player.scenes_visited.count|pluralize }} explored
+        </p>
+        {% endif %}
+    </div>
+
+    <div class="hero-decoration">
+        <div class="candle-group">
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle tall"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Story info cards -->
+<section class="info-cards">
+    <div class="card">
+        <div class="card-icon">🗺️</div>
+        <h3>Explore</h3>
+        <p>Navigate through a haunted mansion where every choice shapes your fate. No two playthroughs are the same.</p>
+    </div>
+    <div class="card">
+        <div class="card-icon">💀</div>
+        <h3>Survive</h3>
+        <p>Some paths lead to safety. Others lead somewhere far worse. Choose wisely — or don't.</p>
+    </div>
+    <div class="card">
+        <div class="card-icon">✍️</div>
+        <h3>Contribute</h3>
+        <p>Think you can write a better scene? <a href="{% url 'suggest_scene' %}">Submit your own</a> and expand the story.</p>
+    </div>
+</section>
+{% endblock %}

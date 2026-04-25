@@ -1,0 +1,75 @@
+{% extends 'adventure/base.html' %}
+
+{% block title %}Stats — NexusStory{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>📊 Your Stats</h1>
+        <p>How far have you made it through the mansion?</p>
+    </div>
+
+    <div class="stats-grid">
+        <!-- Personal stats -->
+        <div class="stats-card">
+            <h3>Your Playthrough</h3>
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: {{ percent }}%"></div>
+            </div>
+            <p class="progress-text">{{ percent }}% of the mansion explored</p>
+
+            <dl class="stats-dl">
+                <dt>Scenes Visited</dt>
+                <dd>{{ visited }} / {{ total_scenes }}</dd>
+
+                <dt>Current Scene</dt>
+                <dd>
+                    {% if player.current_scene %}
+                        <a href="{% url 'scene' player.current_scene.id %}">{{ player.current_scene.title }}</a>
+                    {% else %}
+                        Not started
+                    {% endif %}
+                </dd>
+
+                <dt>Playthrough Status</dt>
+                <dd>
+                    {% if player.is_complete %}
+                        ✅ Completed
+                    {% elif player.current_scene %}
+                        🎮 In Progress
+                    {% else %}
+                        ⏸ Not Started
+                    {% endif %}
+                </dd>
+
+                <dt>Started</dt>
+                <dd>{{ player.started_at|date:"M d, Y H:i" }}</dd>
+            </dl>
+        </div>
+
+        <!-- Global stats -->
+        <div class="stats-card">
+            <h3>Global Stats</h3>
+            <dl class="stats-dl">
+                <dt>Total Players</dt>
+                <dd>{{ total_players }}</dd>
+
+                <dt>Players Who Completed</dt>
+                <dd>{{ completed_players }}</dd>
+
+                <dt>Total Scenes in Story</dt>
+                <dd>{{ total_scenes }}</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="stats-actions">
+        {% if player.current_scene and not player.is_complete %}
+            <a href="{% url 'scene' player.current_scene.id %}" class="btn btn-primary">▶ Continue Playing</a>
+        {% else %}
+            <a href="{% url 'start_game' %}" class="btn btn-primary">↺ Start a New Game</a>
+        {% endif %}
+        <a href="{% url 'export_csv' %}" class="btn btn-ghost">⬇ Download Story Map CSV</a>
+    </div>
+</div>
+{% endblock %}

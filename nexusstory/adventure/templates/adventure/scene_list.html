@@ -1,0 +1,85 @@
+{% extends 'adventure/base.html' %}
+
+{% block title %}Story Map — NexusStory{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>🗺️ Story Map</h1>
+        <p>The complete graph of scenes and paths in the mansion.</p>
+    </div>
+
+    <!-- Summary stats bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-number">{{ total_scenes }}</span>
+            <span class="stat-label">Total Scenes</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">{{ total_choices }}</span>
+            <span class="stat-label">Choices</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">{{ ending_count }}</span>
+            <span class="stat-label">Endings</span>
+        </div>
+    </div>
+
+    <!-- Scene table -->
+    <div class="scene-table-wrapper">
+        <table class="scene-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Scene Title</th>
+                    <th>Atmosphere</th>
+                    <th>Choices</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for scene in scenes %}
+                <tr class="{% if scene.is_start %}row-start{% elif scene.is_ending %}row-ending{% endif %}">
+                    <td>{{ scene.id }}</td>
+                    <td>
+                        <strong>{{ scene.title }}</strong>
+                        {% if scene.is_start %}<span class="badge badge-start">START</span>{% endif %}
+                        {% if scene.is_ending %}<span class="badge badge-ending">{{ scene.ending_type|upper }}</span>{% endif %}
+                    </td>
+                    <td>
+                        <span class="atmosphere-pill pill-{{ scene.atmosphere }}">{{ scene.atmosphere }}</span>
+                    </td>
+                    <td>{{ scene.choices.count }}</td>
+                    <td>
+                        {% if scene.is_ending %}Ending{% elif scene.is_start %}Start{% else %}Story{% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'scene_detail' scene.pk %}" class="btn btn-small">Details</a>
+                        <a href="{% url 'scene' scene.id %}" class="btn btn-small btn-ghost">Play</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="empty-state">No scenes have been created yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-ghost">← Previous</a>
+        {% endif %}
+        <span class="page-info">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-ghost">Next →</a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

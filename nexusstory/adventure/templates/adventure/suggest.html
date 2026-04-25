@@ -1,0 +1,56 @@
+{% extends 'adventure/base.html' %}
+
+{% block title %}Suggest a Scene — NexusStory{% endblock %}
+
+{% block content %}
+<div class="page-wrapper page-narrow">
+    <div class="page-header">
+        <h1>✍️ Suggest a Scene</h1>
+        <p>Have an idea for a scene in the haunted mansion? Submit it here. The story master reviews all suggestions.</p>
+    </div>
+
+    <div class="form-card">
+        <form method="POST" action="{% url 'suggest_scene' %}">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group {% if field.errors %}form-group-error{% endif %}">
+                <label class="form-label" for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                    {% if field.field.required %}<span class="required-star">*</span>{% endif %}
+                </label>
+
+                {{ field }}
+
+                {% if field.help_text %}
+                <p class="form-help">{{ field.help_text }}</p>
+                {% endif %}
+
+                {% if field.errors %}
+                <ul class="form-errors">
+                    {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Submit Scene</button>
+                <a href="{% url 'home' %}" class="btn btn-ghost">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-info-box">
+        <h4>📋 Guidelines</h4>
+        <ul>
+            <li>Scenes should fit the haunted mansion theme</li>
+            <li>Keep it spooky but not gratuitously violent</li>
+            <li>Submitted scenes will appear in the Story Map as draft scenes</li>
+            <li>The admin will connect your scene into the story once approved</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

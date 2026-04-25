@@ -1,0 +1,100 @@
+{% extends 'adventure/base.html' %}
+
+{% block title %}{{ scene.title }} — NexusStory{% endblock %}
+{% block body_class %}scene-page atmosphere-{{ scene.atmosphere }}{% endblock %}
+
+{% block content %}
+<div class="scene-wrapper">
+
+    <!-- Scene header -->
+    <div class="scene-header">
+        <div class="scene-breadcrumb">
+            <a href="{% url 'home' %}">Home</a> &rsaquo; Scene {{ scene.id }}
+        </div>
+        <div class="scene-progress">
+            <span class="progress-label">Scenes explored: {{ visited_count }}</span>
+        </div>
+    </div>
+
+    <!-- Main scene card -->
+    <div class="scene-card atmosphere-{{ scene.atmosphere }}">
+
+        <!-- Optional scene image -->
+        {% if scene.image_url %}
+        <div class="scene-image-wrapper">
+            <img src="{{ scene.image_url }}" alt="{{ scene.title }}" class="scene-image">
+        </div>
+        {% endif %}
+
+        <!-- Atmosphere indicator -->
+        <div class="atmosphere-badge badge-{{ scene.atmosphere }}">
+            {% if scene.atmosphere == 'terrifying' %}☠ Terrifying
+            {% elif scene.atmosphere == 'tense' %}⚡ Tense
+            {% elif scene.atmosphere == 'mysterious' %}🔮 Mysterious
+            {% elif scene.atmosphere == 'calm' %}🌙 Calm
+            {% else %}📖 Normal
+            {% endif %}
+        </div>
+
+        <h1 class="scene-title">{{ scene.title }}</h1>
+
+        <div class="scene-body">
+            {{ scene.body|linebreaks }}
+        </div>
+
+        <!-- Choices section -->
+        <div class="scene-choices">
+            {% if scene.is_ending %}
+                <!-- Ending screen -->
+                <div class="ending-block ending-{{ scene.ending_type }}">
+                    {% if scene.ending_type == 'good' %}
+                        <div class="ending-icon">🎉</div>
+                        <h2 class="ending-title">You Escaped!</h2>
+                        <p>You found a way out of the mansion. Well done, survivor.</p>
+                    {% elif scene.ending_type == 'bad' %}
+                        <div class="ending-icon">💀</div>
+                        <h2 class="ending-title">You Didn't Make It.</h2>
+                        <p>The mansion claimed another soul. Perhaps next time, choose differently.</p>
+                    {% else %}
+                        <div class="ending-icon">🌫️</div>
+                        <h2 class="ending-title">The Story Ends Here.</h2>
+                        <p>Some questions have no answers.</p>
+                    {% endif %}
+
+                    <div class="ending-stats">
+                        <p>You explored <strong>{{ visited_count }}</strong> scene{{ visited_count|pluralize }} in this run.</p>
+                    </div>
+
+                    <div class="ending-actions">
+                        <a href="{% url 'start_game' %}" class="btn btn-primary">↺ Play Again</a>
+                        <a href="{% url 'stats' %}" class="btn btn-ghost">📊 See Stats</a>
+                    </div>
+                </div>
+
+            {% elif choices %}
+                <h3 class="choices-heading">What do you do?</h3>
+                <div class="choices-list">
+                    {% for choice in choices %}
+                    <form method="POST" action="{% url 'make_choice' choice.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="choice-btn">
+                            <span class="choice-arrow">›</span>
+                            {{ choice.text }}
+                        </button>
+                    </form>
+                    {% endfor %}
+                </div>
+
+            {% else %}
+                <!-- Scene has no choices and isn't marked as ending — admin oversight -->
+                <div class="no-choices-warning">
+                    <p>⚠️ This scene has no choices yet. The story master is still writing...</p>
+                    <a href="{% url 'home' %}" class="btn btn-ghost">← Return Home</a>
+                </div>
+            {% endif %}
+        </div>
+
+    </div><!-- end scene-card -->
+
+</div>
+{% endblock %}
